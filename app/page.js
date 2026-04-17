@@ -36,17 +36,44 @@ export default async function Home() {
       {/* Bottom Dark Section */}
       <section className="container" style={{ paddingTop: '2rem', paddingBottom: '5rem' }}>
 
-        {/* Typographic Inspiration */}
-        <div style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
-          <h2 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 'normal', fontFamily: 'var(--font-sans)', fontStyle: 'italic', marginBottom: '0.2rem' }}>
-            fiction doesn't
-          </h2>
-          <h1 style={{ fontSize: '5rem', color: 'var(--overlay-white)', letterSpacing: '-2px', textShadow: '2px 2px 10px rgba(0,0,0,0.5)', marginBottom: '-1rem' }}>
-            Care.
-          </h1>
-          <h2 style={{ fontSize: '2rem', color: 'var(--accent-color)', fontFamily: 'var(--font-sans)', textAlign: 'center', marginTop: '1rem' }}>
-            until you <span style={{ fontWeight: 900, fontSize: '2.5rem', marginLeft: '0.5rem', color: 'var(--text-primary)' }}>READ.</span>
-          </h2>
+        {/* Typographic Inspiration & Quotes */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
+
+          {/* LHS - Main Heading */}
+          <div style={{ textAlign: 'left' }}>
+            <h2 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 'normal', fontFamily: 'var(--font-sans)', fontStyle: 'italic', marginBottom: '0.2rem' }}>
+              fiction doesn't
+            </h2>
+            <h1 style={{ fontSize: '5rem', color: 'var(--overlay-white)', letterSpacing: '-2px', textShadow: '2px 2px 10px rgba(0,0,0,0.5)', marginBottom: '-1rem' }}>
+              Care.
+            </h1>
+            <h2 style={{ fontSize: '2rem', color: 'var(--accent-color)', fontFamily: 'var(--font-sans)', textAlign: 'left', marginTop: '1rem' }}>
+              until you <span style={{ fontWeight: 900, fontSize: '2.5rem', marginLeft: '0.5rem', color: 'var(--text-primary)' }}>READ.</span>
+            </h2>
+          </div>
+
+          {/* RHS - Favorite Quotes */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', borderLeft: '1px solid var(--border-color)', paddingLeft: '2.5rem' }}>
+
+            <figure style={{ margin: 0 }}>
+              <blockquote style={{ fontSize: '1.2rem', color: 'var(--overlay-white)', fontStyle: 'italic', fontFamily: 'var(--font-serif)', marginBottom: '0.5rem', lineHeight: 1.4 }}>
+                "For you, a thousand times over."
+              </blockquote>
+              <figcaption style={{ color: 'var(--text-label)', fontSize: '0.85rem', textAlign: 'right' }}>
+                &mdash; The Kite Runner
+              </figcaption>
+            </figure>
+
+            <figure style={{ margin: 0 }}>
+              <blockquote style={{ fontSize: '1.2rem', color: 'var(--overlay-white)', fontStyle: 'italic', fontFamily: 'var(--font-serif)', marginBottom: '0.5rem', lineHeight: 1.4 }}>
+                "They got me a long time ago."
+              </blockquote>
+              <figcaption style={{ color: 'var(--text-label)', fontSize: '0.85rem', textAlign: 'right' }}>
+                &mdash; True Detective (Rust Cohle)
+              </figcaption>
+            </figure>
+
+          </div>
         </div>
 
         {/* Content Cards */}

@@ -8,9 +8,8 @@
     /* Anchor everything solidly to the left side */
     position: relative;
     min-height: 120px;
-    padding: 1.5rem 0 1.5rem 3rem;
-    /* Small left buffer */
-    overflow: hidden;
+    padding: 2rem 0 2rem 4rem;
+    /* Increased padding slightly */
     width: 100%;
 }
 
