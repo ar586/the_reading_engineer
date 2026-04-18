@@ -51,6 +51,7 @@ async function importStories() {
 
             return {
                 title: s.title,
+                slug: s.slug || "",
                 description: s.excerpt || 'No description provided.',
                 content: s.content,
                 coverImage: s.thumbnail || "",

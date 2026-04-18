@@ -5,6 +5,8 @@ import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
+const LOCKED_SLUGS = ['unmasked', 'a-peculiar-date'];
+
 export default async function StoryReader({ params }) {
     await dbConnect();
     const p = await params;
@@ -18,6 +20,45 @@ export default async function StoryReader({ params }) {
 
     if (!story) {
         return notFound();
+    }
+
+    // Block direct URL access for locked stories
+    if (LOCKED_SLUGS.includes(story.slug)) {
+        return (
+            <div style={{ backgroundColor: 'var(--reading-bg)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+                <div style={{ textAlign: 'center', maxWidth: '480px' }}>
+                    {/* Chain top */}
+                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                        {[...Array(7)].map((_, i) => (
+                            <div key={i} style={{ width: '26px', height: '14px', border: '2px solid #6B5C36', borderRadius: '7px' }} />
+                        ))}
+                    </div>
+
+                    {/* Lock icon */}
+                    <div style={{ width: '72px', height: '72px', borderRadius: '50%', border: '2px solid #8B7A4A', backgroundColor: '#0F0F0F', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto', boxShadow: '0 0 20px rgba(139,122,74,0.25)' }}>
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#A68F58" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+
+                    {/* Chain bottom */}
+                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center', marginBottom: '2.5rem' }}>
+                        {[...Array(7)].map((_, i) => (
+                            <div key={i} style={{ width: '26px', height: '14px', border: '2px solid #6B5C36', borderRadius: '7px' }} />
+                        ))}
+                    </div>
+
+                    <h2 style={{ color: '#A68F58', fontFamily: 'var(--font-serif)', fontSize: '2rem', marginBottom: '1rem' }}>{story.title}</h2>
+                    <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem' }}>
+                        This manuscript has been taken down at the sincere request of a real-life character within the story. Their privacy matters more than the page.
+                    </p>
+                    <Link href="/stories" style={{ color: 'var(--accent-color)', fontSize: '0.9rem', textDecoration: 'none' }}>
+                        ← Return to all stories
+                    </Link>
+                </div>
+            </div>
+        );
     }
 
     // Set up Immersive Distraction Free Styling Layer

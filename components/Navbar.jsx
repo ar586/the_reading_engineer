@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function Navbar() {
     return (
-        <div style={{ backgroundColor: 'var(--overlay-white)' }}>
-            <nav className="navbar container" style={{ borderBottom: 'none', marginBottom: 0, paddingBottom: 0 }}>
+        <div style={{ backgroundColor: 'var(--overlay-white)', padding: '1rem 0 0.5rem 0' }}>
+            <nav className="navbar container" style={{ borderBottom: 'none', marginBottom: 0, paddingBottom: 0, paddingTop: '0.5rem' }}>
                 <Link href="/" className="navbar-brand" style={{ color: 'var(--bg-secondary)' }}>
                     The Reading Engineer
                 </Link>
@@ -22,9 +22,6 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link href="/about" className="nav-link" style={{ color: 'var(--bg-secondary)' }}>About</Link>
-                    </li>
-                    <li>
-                        <Link href="/admin" className="nav-link" style={{ color: 'var(--accent-red-hover)', fontWeight: 'bold' }}>Dashboard</Link>
                     </li>
                 </ul>
             </nav>
