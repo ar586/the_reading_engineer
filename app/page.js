@@ -83,7 +83,7 @@ export default async function Home() {
                 "They got me a long time ago."
               </blockquote>
               <figcaption style={{ color: 'var(--text-label)', fontSize: '0.85rem', textAlign: 'right' }}>
-                &mdash; True Detective (Rust Cohle)
+                &mdash; 1984
               </figcaption>
             </figure>
 

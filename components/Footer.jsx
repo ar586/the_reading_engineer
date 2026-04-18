@@ -44,6 +44,14 @@ export default function Footer() {
                         <span style={{ fontSize: '0.85rem' }}>YouTube</span>
                     </a>
 
+                    {/* Goodreads Placeholder Icon */}
+                    <a href="#" aria-label="Goodreads" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '0.5rem' }} onMouseOver={e => e.currentTarget.style.color = 'var(--text-primary)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                        </svg>
+                        <span style={{ fontSize: '0.85rem' }}>Goodreads</span>
+                    </a>
+
                 </div>
 
             </div>

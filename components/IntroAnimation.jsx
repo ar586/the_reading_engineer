@@ -48,10 +48,10 @@ export default function IntroAnimation() {
             {/* The Text that gets spit out */}
             <div className={`hero-text-container stage-${stage}`}>
                 <h1 className="hero-title">
-                    Welcome to The Reading Engineer
+                    Pleased to host you at the Reading Engineer
                 </h1>
                 <p className="hero-subtitle">
-                    Original fiction stories, honest book reviews, and deep genre breakdowns.
+                    You'll get a sneak peek of my mind here clutterd with lots of stories, reviews and analyses.
                 </p>
             </div>
         </div>
