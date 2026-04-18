@@ -63,14 +63,26 @@ export default function CoverMarquee({ books }) {
                             boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
                             border: '1px solid rgba(255,255,255,0.15)',
                             cursor: 'pointer',
-                            position: 'relative'
+                            position: 'relative',
+                            // Shimmer skeleton shown while image loads
+                            background: 'linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%)',
+                            backgroundSize: '200% 100%',
+                            animation: 'shimmer 1.5s infinite',
                         }}
                     >
                         <img
                             src={book.coverImage}
                             alt={book.title}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            loading="lazy"
+                            loading={idx < 10 ? "eager" : "lazy"}
+                            fetchPriority={idx < 5 ? "high" : "auto"}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                opacity: 0,
+                                transition: 'opacity 0.4s ease',
+                            }}
+                            onLoad={e => { e.currentTarget.style.opacity = 1; }}
                         />
                         {/* Hover Tint Overlay */}
                         <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%)', opacity: 0, transition: 'opacity 0.3s ease' }}
