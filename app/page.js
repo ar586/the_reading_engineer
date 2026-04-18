@@ -5,6 +5,7 @@ import dbConnect from '@/lib/mongodb';
 import Story from '@/models/Story';
 import Review from '@/models/Review';
 import Analysis from '@/models/Analysis';
+import GoodreadsBook from '@/models/GoodreadsBook';
 
 // Tells Next.js not to statically cache this page so new database additions show immediately
 export const dynamic = 'force-dynamic';
@@ -17,6 +18,9 @@ export default async function Home() {
   const stories = await Story.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean();
   const reviews = await Review.find().sort({ createdAt: -1 }).limit(3).lean();
   const analyses = await Analysis.find().sort({ createdAt: -1 }).limit(3).lean();
+
+  // Fetch Goodreads stats
+  const currentlyReading = await GoodreadsBook.findOne({ bookshelves: { $regex: /currently-reading/i } }).lean();
 
   return (
     <div className="split-home-layout">
@@ -52,8 +56,18 @@ export default async function Home() {
             </h2>
           </div>
 
-          {/* RHS - Favorite Quotes */}
+          {/* RHS - Favorite Quotes & Widget */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', borderLeft: '1px solid var(--border-color)', paddingLeft: '2.5rem' }}>
+
+            {currentlyReading && (
+              <div className="animate-fade-in" style={{ padding: '1.25rem', border: '1px solid var(--accent-hover)', borderRadius: 'var(--radius-md)', backgroundColor: 'var(--bg-tertiary)', position: 'relative' }}>
+                <span style={{ position: 'absolute', top: '-10px', left: '15px', backgroundColor: 'var(--accent-color)', color: 'var(--bg-primary)', fontSize: '0.75rem', fontWeight: 'bold', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  Currently Reading
+                </span>
+                <p style={{ fontWeight: 'bold', color: 'var(--overlay-white)', fontSize: '1.2rem', marginBottom: '0.2rem', marginTop: '0.5rem' }}>{currentlyReading.title}</p>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>by {currentlyReading.author}</p>
+              </div>
+            )}
 
             <figure style={{ margin: 0 }}>
               <blockquote style={{ fontSize: '1.2rem', color: 'var(--overlay-white)', fontStyle: 'italic', fontFamily: 'var(--font-serif)', marginBottom: '0.5rem', lineHeight: 1.4 }}>

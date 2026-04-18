@@ -1,28 +1,28 @@
 :root {
-  /* Color Palette - Cobaltish Blue-Greens */
-  --bg-primary: #2B4E61;
-  --bg-secondary: #182C38;
-  --bg-tertiary: #3F708C;
-  --text-primary: #FFFFFF;
-  --text-secondary: #C4D3DF;
-  --text-label: #8A9FAC;
+  /* Color Palette - Sophisticated Black/Grey */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #171717;
+  --bg-tertiary: #262626;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A3A3A3;
+  --text-label: #737373;
 
   /* Fog / Overlay Tones */
-  --overlay-dark: #6C8496;
-  --overlay-light: #A5B8C7;
-  --overlay-white: #E3E9EE;
+  --overlay-dark: #404040;
+  --overlay-light: #737373;
+  --overlay-white: #D4D4D4;
 
-  /* Accents */
-  --accent-color: #C7A34A;
-  --accent-hover: #9C7C2F;
-  --accent-red: #B23A3A;
-  --accent-red-hover: #7A1F1F;
+  /* Accents - Muted Soft Bronze/Gold */
+  --accent-color: #A68F58;
+  --accent-hover: #C5B079;
+  --accent-red: #A33B3B;
+  --accent-red-hover: #7E2626;
 
-  --border-color: #6C8496;
+  --border-color: #333333;
 
   /* Reading Mode Variables */
-  --reading-bg: #1F3236;
-  --reading-text: #E5ECEE;
+  --reading-bg: #121212;
+  --reading-text: #E5E5E5;
 
   /* Typography */
   --font-serif: 'Georgia', serif;
@@ -201,4 +201,30 @@ textarea:focus {
 
 .animate-fade-in {
   animation: fadeIn 0.5s ease forwards;
+}
+
+/* Immersive Story Content Layout */
+.story-content p {
+  margin-bottom: 2rem;
+  letter-spacing: 0.2px;
+  font-size: 1.25rem;
+}
+
+.story-content p:first-of-type::first-letter {
+  float: left;
+  font-size: 4.5rem;
+  line-height: 0.8;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.story-content blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
 }
