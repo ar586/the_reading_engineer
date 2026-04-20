@@ -66,7 +66,7 @@ export default async function Home() {
               boxShadow: '0 0 20px rgba(225,198,153,0.1)',
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem',
             }}>
-              <span style={{ fontSize: '0.6rem', color: 'var(--text-label)', textTransform: 'uppercase', letterSpacing: '3px', fontWeight: 600 }}>2025 Goal</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--text-label)', textTransform: 'uppercase', letterSpacing: '3px', fontWeight: 600 }}>2026 Goal</span>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.35rem' }}>
                 <span style={{ fontSize: '2.8rem', fontWeight: 900, color: 'var(--accent-color)', lineHeight: 1, fontFamily: 'var(--font-serif)' }}>14</span>
                 <span style={{ fontSize: '1.1rem', color: 'var(--text-label)', fontWeight: 400 }}>/</span>

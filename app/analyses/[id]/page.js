@@ -30,7 +30,7 @@ export default async function AnalysisDetailsPage({ params }) {
             <div className="card" style={{ padding: '3rem' }}>
                 <div style={{ display: 'flex', gap: '2rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
                     {analysis.coverImage && (
-                        <div style={{ flexShrink: 0, width: '180px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: '0 8px 20px rgba(0,0,0,0.3)' }}>
+                        <div style={{ flexShrink: 0, width: '220px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: '0 8px 20px rgba(0,0,0,0.3)' }}>
                             <img src={analysis.coverImage} alt={analysis.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
                         </div>
                     )}
