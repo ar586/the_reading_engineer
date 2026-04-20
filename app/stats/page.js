@@ -26,15 +26,15 @@ export default async function StatsPage() {
     }));
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
 
             {/* Header Banner */}
             <section style={{ backgroundColor: 'var(--overlay-white)', paddingTop: '4rem', paddingBottom: '3rem', textAlign: 'center' }}>
                 <div className="container">
-                    <h1 style={{ fontSize: '3rem', color: 'var(--bg-secondary)', marginBottom: '1rem', textShadow: 'none' }}>
+                    <h1 className="stats-header-title" style={{ fontSize: '3rem', color: 'var(--bg-secondary)', marginBottom: '1rem', textShadow: 'none' }}>
                         Library Analytics
                     </h1>
-                    <p style={{ color: 'var(--bg-primary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto', fontStyle: 'italic' }}>
+                    <p className="stats-header-subtitle" style={{ color: 'var(--bg-primary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto', fontStyle: 'italic' }}>
                         A structural deep-dive into lifetime reading habits, extracted securely from Goodreads data telemetry.
                     </p>
                 </div>

@@ -19,8 +19,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ overflowX: 'hidden' }}>
-      <body className={`${inter.variable} ${lora.variable}`} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <html lang="en">
+      <body className={`${inter.variable} ${lora.variable}`} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', overflowX: 'hidden', maxWidth: '100vw' }}>
         <Navbar />
         <main className="animate-fade-in" style={{ flex: 1 }}>
           {children}

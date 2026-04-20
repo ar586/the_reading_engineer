@@ -66,7 +66,7 @@ export default function StatsClient({ books }) {
     const monthlyChartData = months.map((m, i) => ({ name: m, count: monthlyData[i] }));
 
     return (
-        <section className="container" style={{ padding: '2rem 1rem', flex: 1, paddingBottom: '6rem', overflowX: 'hidden' }}>
+        <section className="container" style={{ padding: '2rem 1rem', flex: 1, paddingBottom: '6rem' }}>
 
             {/* Elegant Year Selector */}
             <motion.div
@@ -104,7 +104,7 @@ export default function StatsClient({ books }) {
             </motion.div>
 
             {/* Seamless Infinite Loop Book Slideshow */}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} style={{ width: '100%', overflow: 'hidden' }}>
                 <CoverMarquee books={filteredBooks} />
             </motion.div>
 
@@ -137,7 +137,7 @@ export default function StatsClient({ books }) {
                         </div>
                         <div>
                             <h3 style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '0.35rem' }}>{stat.label}</h3>
-                            <p style={{ fontSize: '2.5rem', fontWeight: '900', color: stat.color, lineHeight: 1 }}>{stat.value}</p>
+                            <p style={{ fontSize: '2.5rem', fontWeight: '900', color: stat.color, lineHeight: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{stat.value}</p>
                         </div>
                     </motion.div>
                 ))}
@@ -148,19 +148,20 @@ export default function StatsClient({ books }) {
 
                 {/* Monthly Area Chart */}
                 <motion.div
+                    className="stats-chart-card"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 }}
-                    style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
+                    style={{ padding: '2rem', borderRadius: 'var(--radius-lg)', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', overflow: 'hidden' }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                         <Activity size={24} color="var(--accent-hover)" />
                         <h2 className="stats-chart-title" style={{ color: 'var(--text-primary)', fontSize: '1.5rem', margin: 0, fontWeight: 300 }}>Reading Velocity Tracking</h2>
                     </div>
 
-                    <div className="stats-chart-area" style={{ width: '100%', height: 320 }}>
+                    <div className="stats-chart-area" style={{ width: '100%', minWidth: 0, height: 320, overflow: 'hidden' }}>
                         <ResponsiveContainer width="100%" height="100%">
-                            <AreaChart data={monthlyChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                            <AreaChart data={monthlyChartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                                 <defs>
                                     <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
                                         <stop offset="5%" stopColor="var(--accent-hover)" stopOpacity={0.8} />
@@ -204,6 +205,7 @@ export default function StatsClient({ books }) {
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 0.3, delay: Math.min(i * 0.05, 0.5) }}
                                     whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(0,0,0,0.3)', borderColor: 'var(--accent-hover)' }}
+                                    className="stats-roster-card"
                                     style={{
                                         padding: '1.5rem',
                                         border: '1px solid rgba(255,255,255,0.05)',
@@ -228,7 +230,7 @@ export default function StatsClient({ books }) {
                                             </div>
                                         )}
                                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                            <h4 style={{ color: 'var(--overlay-white)', fontSize: '1.1rem', marginBottom: '0.35rem', lineHeight: 1.3, fontWeight: 'bold' }}>{book.title}</h4>
+                                            <h4 style={{ color: 'var(--overlay-white)', fontSize: '1.1rem', marginBottom: '0.35rem', lineHeight: 1.3, fontWeight: 'bold', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{book.title}</h4>
                                             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontStyle: 'italic' }}>By {book.author}</p>
                                         </div>
                                     </div>
