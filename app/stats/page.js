@@ -26,7 +26,7 @@ export default async function StatsPage() {
     }));
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
 
             {/* Header Banner */}
             <section style={{ backgroundColor: 'var(--overlay-white)', paddingTop: '4rem', paddingBottom: '3rem', textAlign: 'center' }}>

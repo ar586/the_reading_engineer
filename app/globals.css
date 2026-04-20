@@ -50,11 +50,16 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
@@ -239,19 +244,27 @@ textarea:focus {
   font-size: 1.15rem;
   color: var(--text-secondary);
 }
+
 /* ================================================
    RESPONSIVE – Tablet (max 900px)
    ================================================ */
 @media (max-width: 900px) {
-  .navbar-brand { font-size: 1.2rem; }
-  .nav-links { gap: 1rem; }
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
 }
 
 /* ================================================
    RESPONSIVE – Mobile (max 768px)
    ================================================ */
 @media (max-width: 768px) {
-  .container { padding: 0 1rem; }
+  .container {
+    padding: 0 1rem;
+  }
 
   .navbar {
     flex-direction: column;
@@ -266,12 +279,25 @@ textarea:focus {
     gap: 0.5rem 1rem;
   }
 
-  .nav-link { font-size: 0.9rem; }
-  .navbar-brand { font-size: 1.15rem; }
-  .card { padding: 1rem; }
+  .nav-link {
+    font-size: 0.9rem;
+  }
 
-  .story-content p { font-size: 1.05rem; }
-  .story-content p:first-of-type::first-letter { font-size: 3.5rem; }
+  .navbar-brand {
+    font-size: 1.15rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .story-content p {
+    font-size: 1.05rem;
+  }
+
+  .story-content p:first-of-type::first-letter {
+    font-size: 3.5rem;
+  }
 
   footer .container {
     flex-direction: column !important;
@@ -283,6 +309,130 @@ textarea:focus {
     flex-wrap: wrap;
     gap: 1rem !important;
   }
+
+  /* IntroAnimation – shrink for phones */
+  .hero-animation-container {
+    flex-direction: column !important;
+    padding: 1.5rem 1rem !important;
+    min-height: auto !important;
+    align-items: center !important;
+  }
+
+  .tiny-book-container {
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+    transform: scale(0.85);
+  }
+
+  .hero-text-container {
+    text-align: center !important;
+  }
+
+  .hero-text-container .hero-title {
+    font-size: 1.6rem !important;
+  }
+
+  .hero-text-container .hero-subtitle {
+    font-size: 0.95rem !important;
+  }
+
+  /* Homepage Hero Grid – stack vertically */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    text-align: center;
+  }
+
+  .hero-grid>div:first-child {
+    text-align: center !important;
+  }
+
+  .home-hero-title {
+    font-size: 3.5rem !important;
+  }
+
+  .home-hero-subtitle {
+    font-size: 1.4rem !important;
+    text-align: center !important;
+  }
+
+  .home-hero-subtitle span {
+    font-size: 1.8rem !important;
+    margin-left: 0.25rem !important;
+  }
+
+  /* Goal Badge – center it, remove negative margin */
+  .goal-badge {
+    margin-left: 0 !important;
+    align-self: center !important;
+  }
+
+  /* Quotes Panel – remove left border, stack cleanly */
+  .quotes-panel {
+    border-left: none !important;
+    padding-left: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Analysis Card Rows – stack image below text */
+  .analysis-card-row {
+    flex-direction: column !important;
+  }
+
+  .analysis-card-row>div:last-child {
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  /* Analysis Detail Page – stack header vertically */
+  .analysis-detail-header {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .analysis-detail-header>div:first-child {
+    width: 160px !important;
+  }
+
+  .analysis-detail-header h1 {
+    font-size: 2rem !important;
+    text-align: center;
+  }
+
+  .analysis-detail-header h3 {
+    text-align: center;
+    font-size: 1rem !important;
+  }
+
+  .analysis-detail-header>div:last-child>div {
+    justify-content: center;
+  }
+
+  /* Stats Page – year filter pills wrap */
+  .stats-metrics>div {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .stats-metrics p {
+    font-size: 2rem !important;
+  }
+
+  .stats-chart-area {
+    height: 220px !important;
+  }
+
+  .stats-chart-title {
+    font-size: 1.1rem !important;
+  }
+
+  .stats-roster-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats Page – fix horizontal overflow */
+  .stats-metrics {
+    overflow-x: hidden;
+  }
 }
 
 /* ================================================
@@ -292,5 +442,42 @@ textarea:focus {
   .btn-primary {
     width: 100%;
     text-align: center;
+  }
+
+  .home-hero-title {
+    font-size: 2.8rem !important;
+  }
+
+  .home-hero-subtitle {
+    font-size: 1.2rem !important;
+  }
+
+  .home-hero-subtitle span {
+    font-size: 1.5rem !important;
+  }
+
+  .goal-badge>div {
+    padding: 1rem 1.25rem !important;
+  }
+
+  .analysis-detail-header>div:first-child {
+    width: 130px !important;
+  }
+
+  .analysis-detail-header h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .stats-metrics>div {
+    padding: 1rem 0.75rem !important;
+    gap: 1rem !important;
+  }
+
+  .stats-metrics p {
+    font-size: 1.6rem !important;
+  }
+
+  .stats-chart-area {
+    height: 180px !important;
   }
 }

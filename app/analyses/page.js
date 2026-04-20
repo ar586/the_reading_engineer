@@ -15,7 +15,7 @@ export default async function AnalysesPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '3rem' }}>
                 {analyses.map(analysis => (
                     <div key={analysis._id} className="card" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem' }}>
-                        <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1rem' }}>
+                        <div className="analysis-card-row" style={{ display: 'flex', gap: '1.5rem', marginBottom: '1rem' }}>
                             <div style={{ flex: 1 }}>
                                 <h2 style={{ fontSize: '1.6rem', marginBottom: '0.4rem', lineHeight: 1.2 }}>{analysis.title}</h2>
                                 <h4 style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)', fontWeight: 'normal', fontStyle: 'italic', marginBottom: '1rem', fontSize: '1.05rem' }}>Subject: {analysis.targetSubject}</h4>

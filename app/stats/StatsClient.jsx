@@ -66,7 +66,7 @@ export default function StatsClient({ books }) {
     const monthlyChartData = months.map((m, i) => ({ name: m, count: monthlyData[i] }));
 
     return (
-        <section className="container" style={{ padding: '2rem 1rem', flex: 1, paddingBottom: '6rem' }}>
+        <section className="container" style={{ padding: '2rem 1rem', flex: 1, paddingBottom: '6rem', overflowX: 'hidden' }}>
 
             {/* Elegant Year Selector */}
             <motion.div
@@ -109,7 +109,7 @@ export default function StatsClient({ books }) {
             </motion.div>
 
             {/* Glassmorphic Metrics Row */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
+            <div className="stats-metrics" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
                 {[
                     { label: 'Books Finished', value: totalBooks, icon: BookOpen, color: 'var(--accent-color)' },
                     { label: 'Pages Absorbed', value: totalPages.toLocaleString(), icon: Library, color: 'var(--overlay-white)' },
@@ -155,10 +155,10 @@ export default function StatsClient({ books }) {
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                         <Activity size={24} color="var(--accent-hover)" />
-                        <h2 style={{ color: 'var(--text-primary)', fontSize: '1.5rem', margin: 0, fontWeight: 300 }}>Reading Velocity Tracking</h2>
+                        <h2 className="stats-chart-title" style={{ color: 'var(--text-primary)', fontSize: '1.5rem', margin: 0, fontWeight: 300 }}>Reading Velocity Tracking</h2>
                     </div>
 
-                    <div style={{ width: '100%', height: 320 }}>
+                    <div className="stats-chart-area" style={{ width: '100%', height: 320 }}>
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart data={monthlyChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                                 <defs>
@@ -192,6 +192,7 @@ export default function StatsClient({ books }) {
                     <motion.div
                         layout
                         style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: '1.5rem' }}
+                        className="stats-roster-grid"
                     >
                         <AnimatePresence mode="popLayout">
                             {filteredBooks.map((book, i) => (

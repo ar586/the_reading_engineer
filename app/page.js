@@ -41,23 +41,23 @@ export default async function Home() {
       <section className="container" style={{ paddingTop: '2rem', paddingBottom: '5rem' }}>
 
         {/* Typographic Inspiration & Quotes */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
+        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
 
           {/* LHS - Main Heading */}
           <div style={{ textAlign: 'left' }}>
             <h2 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 'normal', fontFamily: 'var(--font-sans)', fontStyle: 'italic', marginBottom: '0.2rem' }}>
               Come Lets
             </h2>
-            <h1 style={{ fontSize: '5rem', color: 'var(--overlay-white)', letterSpacing: '-2px', textShadow: '2px 2px 10px rgba(0,0,0,0.5)', marginBottom: '-1rem' }}>
+            <h1 className="home-hero-title" style={{ fontSize: '5rem', color: 'var(--overlay-white)', letterSpacing: '-2px', textShadow: '2px 2px 10px rgba(0,0,0,0.5)', marginBottom: '-1rem' }}>
               Escape
             </h1>
-            <h2 style={{ fontSize: '2rem', color: 'var(--accent-color)', fontFamily: 'var(--font-sans)', textAlign: 'left', marginTop: '1rem' }}>
+            <h2 className="home-hero-subtitle" style={{ fontSize: '2rem', color: 'var(--accent-color)', fontFamily: 'var(--font-sans)', textAlign: 'left', marginTop: '1rem' }}>
               for Few <span style={{ fontWeight: 900, fontSize: '2.5rem', marginLeft: '0.5rem', color: 'var(--text-primary)' }}>Moments.</span>
             </h2>
           </div>
 
           {/* Center - Rectangle Year Goal Badge */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignSelf: 'start', marginLeft: '-2.5rem' }}>
+          <div className="goal-badge" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignSelf: 'start', marginLeft: '-2.5rem' }}>
             <div style={{
               padding: '1.5rem 2rem',
               border: '2px solid var(--accent-color)',
@@ -77,7 +77,7 @@ export default async function Home() {
           </div>
 
           {/* RHS - Favorite Quotes & Widget */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', borderLeft: '1px solid var(--border-color)', paddingLeft: '2.5rem' }}>
+          <div className="quotes-panel" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', borderLeft: '1px solid var(--border-color)', paddingLeft: '2.5rem' }}>
 
             {currentlyReading && (
               <div className="animate-fade-in" style={{ padding: '1.25rem', border: '1px solid var(--accent-hover)', borderRadius: 'var(--radius-md)', backgroundColor: 'var(--bg-tertiary)', position: 'relative' }}>
