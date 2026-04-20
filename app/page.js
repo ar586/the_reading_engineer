@@ -41,19 +41,39 @@ export default async function Home() {
       <section className="container" style={{ paddingTop: '2rem', paddingBottom: '5rem' }}>
 
         {/* Typographic Inspiration & Quotes */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '3rem', alignItems: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '2rem', alignItems: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
 
           {/* LHS - Main Heading */}
           <div style={{ textAlign: 'left' }}>
             <h2 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 'normal', fontFamily: 'var(--font-sans)', fontStyle: 'italic', marginBottom: '0.2rem' }}>
-              fiction doesn't
+              Come Lets
             </h2>
             <h1 style={{ fontSize: '5rem', color: 'var(--overlay-white)', letterSpacing: '-2px', textShadow: '2px 2px 10px rgba(0,0,0,0.5)', marginBottom: '-1rem' }}>
-              Care.
+              Escape
             </h1>
             <h2 style={{ fontSize: '2rem', color: 'var(--accent-color)', fontFamily: 'var(--font-sans)', textAlign: 'left', marginTop: '1rem' }}>
-              until you <span style={{ fontWeight: 900, fontSize: '2.5rem', marginLeft: '0.5rem', color: 'var(--text-primary)' }}>READ.</span>
+              for Few <span style={{ fontWeight: 900, fontSize: '2.5rem', marginLeft: '0.5rem', color: 'var(--text-primary)' }}>Moments.</span>
             </h2>
+          </div>
+
+          {/* Center - Rectangle Year Goal Badge */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignSelf: 'start', marginLeft: '-2.5rem' }}>
+            <div style={{
+              padding: '1.5rem 2rem',
+              border: '2px solid var(--accent-color)',
+              borderRadius: '8px',
+              background: 'linear-gradient(135deg, rgba(225,198,153,0.06) 0%, rgba(15,15,15,0.95) 100%)',
+              boxShadow: '0 0 20px rgba(225,198,153,0.1)',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem',
+            }}>
+              <span style={{ fontSize: '0.6rem', color: 'var(--text-label)', textTransform: 'uppercase', letterSpacing: '3px', fontWeight: 600 }}>2025 Goal</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.35rem' }}>
+                <span style={{ fontSize: '2.8rem', fontWeight: 900, color: 'var(--accent-color)', lineHeight: 1, fontFamily: 'var(--font-serif)' }}>14</span>
+                <span style={{ fontSize: '1.1rem', color: 'var(--text-label)', fontWeight: 400 }}>/</span>
+                <span style={{ fontSize: '1.7rem', fontWeight: 700, color: 'var(--overlay-white)', lineHeight: 1 }}>45</span>
+              </div>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', letterSpacing: '1px' }}>books read</span>
+            </div>
           </div>
 
           {/* RHS - Favorite Quotes & Widget */}
@@ -167,7 +187,7 @@ export default async function Home() {
             </div>
 
             <Link href="/analyses" className="btn-primary" style={{ marginTop: 'auto', alignSelf: 'center' }}>
-              Explore All Analyses
+              Explore All Analysis
             </Link>
           </div>
 

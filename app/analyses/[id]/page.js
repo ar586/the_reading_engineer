@@ -24,7 +24,7 @@ export default async function AnalysisDetailsPage({ params }) {
     return (
         <div className="container" style={{ paddingTop: '4rem', paddingBottom: '6rem', maxWidth: '900px' }}>
             <Link href="/analyses" style={{ color: 'var(--text-label)', textDecoration: 'none', display: 'inline-block', marginBottom: '2rem', fontSize: '0.9rem' }}>
-                ← Back to Analyses
+                ← Back to Analysis
             </Link>
 
             <div className="card" style={{ padding: '3rem' }}>

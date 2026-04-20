@@ -15,7 +15,7 @@ export default function Navbar() {
                         <Link href="/reviews" className="nav-link" style={{ color: 'var(--bg-secondary)' }}>Reviews</Link>
                     </li>
                     <li>
-                        <Link href="/analyses" className="nav-link" style={{ color: 'var(--bg-secondary)' }}>Analyses</Link>
+                        <Link href="/analyses" className="nav-link" style={{ color: 'var(--bg-secondary)' }}>Analysis</Link>
                     </li>
                     <li>
                         <Link href="/stats" className="nav-link" style={{ color: 'var(--accent-color)' }}>Library Stats</Link>

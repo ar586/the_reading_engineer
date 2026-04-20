@@ -14,7 +14,7 @@ const lora = Lora({
 
 export const metadata = {
   title: "The Reading Engineer",
-  description: "A platform for fiction stories, reviews, and deep-dive analyses.",
+  description: "A platform for fiction stories, reviews, and deep-dive analysis.",
 };
 
 export default function RootLayout({ children }) {
