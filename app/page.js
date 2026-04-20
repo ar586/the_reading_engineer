@@ -16,8 +16,8 @@ export default async function Home() {
 
   // Fetch the 3 most recent entries for each category
   const stories = await Story.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean();
-  const reviews = await Review.find().sort({ createdAt: -1 }).limit(3).lean();
-  const analyses = await Analysis.find().sort({ createdAt: -1 }).limit(3).lean();
+  const reviews = await Review.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean();
+  const analyses = await Analysis.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean();
 
   // Fetch Goodreads stats
   const currentlyReading = await GoodreadsBook.findOne({ bookshelves: { $regex: /currently-reading/i } }).lean();
@@ -41,7 +41,7 @@ export default async function Home() {
       <section className="container" style={{ paddingTop: '2rem', paddingBottom: '5rem' }}>
 
         {/* Typographic Inspiration & Quotes */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '3rem', alignItems: 'center', marginBottom: '4rem', marginTop: '2rem' }}>
 
           {/* LHS - Main Heading */}
           <div style={{ textAlign: 'left' }}>
@@ -87,11 +87,20 @@ export default async function Home() {
               </figcaption>
             </figure>
 
+            <figure style={{ margin: 0 }}>
+              <blockquote style={{ fontSize: '1.2rem', color: 'var(--overlay-white)', fontStyle: 'italic', fontFamily: 'var(--font-serif)', marginBottom: '0.5rem', lineHeight: 1.4 }}>
+                "Hope is a good thing, maybe the best of things, and no good thing ever dies."
+              </blockquote>
+              <figcaption style={{ color: 'var(--text-label)', fontSize: '0.85rem', textAlign: 'right' }}>
+                &mdash; The Shawshank Redemption
+              </figcaption>
+            </figure>
+
           </div>
         </div>
 
         {/* Content Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3rem' }}>
 
           {/* Stories Column */}
           <div className="card" style={{ display: 'flex', flexDirection: 'column' }}>

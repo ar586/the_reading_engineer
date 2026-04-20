@@ -109,7 +109,7 @@ export default function StatsClient({ books }) {
             </motion.div>
 
             {/* Glassmorphic Metrics Row */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
                 {[
                     { label: 'Books Finished', value: totalBooks, icon: BookOpen, color: 'var(--accent-color)' },
                     { label: 'Pages Absorbed', value: totalPages.toLocaleString(), icon: Library, color: 'var(--overlay-white)' },
@@ -191,7 +191,7 @@ export default function StatsClient({ books }) {
                 {filteredBooks.length > 0 ? (
                     <motion.div
                         layout
-                        style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}
+                        style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: '1.5rem' }}
                     >
                         <AnimatePresence mode="popLayout">
                             {filteredBooks.map((book, i) => (

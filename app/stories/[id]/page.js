@@ -2,6 +2,7 @@ import dbConnect from '@/lib/mongodb';
 import Story from '@/models/Story';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import SpoilerText from '@/components/SpoilerText';
 
 export const dynamic = 'force-dynamic';
 
@@ -91,12 +92,31 @@ export default async function StoryReader({ params }) {
 
                 <hr style={{ border: 'none', borderTop: '1px solid var(--border-color)', margin: '3rem 0', opacity: 0.3 }} />
 
-                {/* Secure HTML Injection since payload implies HTML tags structurally mapped in DB */}
-                <div
-                    className="story-content"
-                    style={{ fontSize: '1.25rem', lineHeight: 1.8, fontFamily: 'var(--font-serif)' }}
-                    dangerouslySetInnerHTML={{ __html: story.content }}
-                />
+                {/* Secure Text Parsing Engine with Legacy HTML Fallback */}
+                <div className="story-content" style={{ fontSize: '1.25rem', lineHeight: 1.8, fontFamily: 'var(--font-serif)', color: 'var(--text-secondary)' }}>
+                    {/<\/?[a-z][\s\S]*>/i.test(story.content) ? (
+                        <div dangerouslySetInnerHTML={{ __html: story.content }} />
+                    ) : (
+                        story.content.split('\n\n').map((paragraph, pIdx) => {
+                            if (!paragraph.trim()) return null;
+                            const parts = paragraph.split('<SpoilerText>');
+                            return (
+                                <p key={pIdx} style={{ marginBottom: '1.5rem', whiteSpace: 'pre-wrap' }}>
+                                    {parts.map((part, index) => {
+                                        if (index === 0) return <span key={index}>{part}</span>;
+                                        const [spoiler, rest] = part.split('</SpoilerText>');
+                                        return (
+                                            <span key={index}>
+                                                <SpoilerText>{spoiler}</SpoilerText>
+                                                {rest}
+                                            </span>
+                                        );
+                                    })}
+                                </p>
+                            );
+                        })
+                    )}
+                </div>
 
                 <hr style={{ border: 'none', borderTop: '1px solid var(--border-color)', margin: '4rem 0', opacity: 0.3 }} />
 

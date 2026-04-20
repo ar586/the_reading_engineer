@@ -108,7 +108,7 @@ export default async function StoriesIndex() {
                 <p style={{ color: 'var(--text-secondary)', fontStyle: 'italic', fontSize: '1.2rem' }}>A collection of original fiction manuscripts.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '3rem' }}>
                 {stories.map(story => {
                     const isLocked = LOCKED_SLUGS.includes(story.slug);
 

@@ -36,7 +36,7 @@ export default function AboutPage() {
                 </h2>
 
                 {/* FAQ + Image side-by-side */}
-                <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'flex-start', marginBottom: '3rem' }}>
+                <div className="faq-row" style={{ display: 'flex', gap: '2.5rem', alignItems: 'flex-start', marginBottom: '3rem' }}>
 
                     {/* Left: FAQ list */}
                     <div style={{ display: 'grid', gap: '1.5rem', flex: 1 }}>
@@ -67,7 +67,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Right: Circular shelf image that opens fullscreen on click */}
-                    <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', paddingTop: '0.25rem' }}>
+                    <div className="faq-avatar" style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', paddingTop: '0.25rem' }}>
                         <div
                             onClick={() => setShelfOpen(true)}
                             title="Click to see my shelf"
@@ -93,11 +93,11 @@ export default function AboutPage() {
                 <hr style={{ border: 'none', borderTop: '1px solid var(--border-color)', margin: '3rem 0' }} />
 
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontStyle: 'italic', textAlign: 'center' }}>
-                    If you still wanna talk more, here are my socials:
+                    If you wanna know more about me, here are my socials:
                 </p>
 
                 <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}>
-                    <a href="#" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', width: '120px' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-primary)'}>
+                    <a href="https://www.instagram.com/aryansingh4600?igsh=MTIxanE0YmF2bXNzMg==" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', width: '120px' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-primary)'}>
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -106,7 +106,7 @@ export default function AboutPage() {
                         <span style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Instagram</span>
                     </a>
 
-                    <a href="#" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', width: '120px' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-primary)'}>
+                    <a href="https://www.linkedin.com/in/aryan-anand-4aba06309/" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', width: '120px' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-primary)'}>
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                             <rect x="2" y="9" width="4" height="12"></rect>

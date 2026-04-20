@@ -1,28 +1,38 @@
 import Link from 'next/link';
 
-export default function AnalysesPage() {
-    // Temporary mock data
-    const analyses = [
-        { _id: '1', title: 'The Evolution of Hard Magic Systems', targetSubject: 'Fantasy Genre', tags: ['Magic Systems', 'Fantasy'] },
-        { _id: '2', title: 'Why The Expanse works so well', targetSubject: 'The Expanse Series', tags: ['Sci-Fi', 'Worldbuilding'] }
-    ];
+import dbConnect from '@/lib/mongodb';
+import Analysis from '@/models/Analysis';
+
+export default async function AnalysesPage() {
+    await dbConnect();
+    const analyses = await Analysis.find({ isDraft: false }).sort({ createdAt: -1 }).lean();
 
     return (
         <div className="container" style={{ padding: '2rem 1rem' }}>
             <h1 style={{ color: 'var(--accent-color)' }}>Genre & Series Breakdowns</h1>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Deep-dive analyses into specific book series, genres, and literary mechanics.</p>
 
-            <div style={{ display: 'grid', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '3rem' }}>
                 {analyses.map(analysis => (
-                    <div key={analysis._id} className="card">
-                        <h2>{analysis.title}</h2>
-                        <h4 style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)' }}>Subject: {analysis.targetSubject}</h4>
-                        <div style={{ margin: '1rem 0' }}>
-                            {analysis.tags.map(tag => (
-                                <span key={tag} className="tag">{tag}</span>
+                    <div key={analysis._id} className="card" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem' }}>
+                        <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                            <div style={{ flex: 1 }}>
+                                <h2 style={{ fontSize: '1.3rem', marginBottom: '0.25rem', lineHeight: 1.2 }}>{analysis.title}</h2>
+                                <h4 style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)', fontWeight: 'normal', fontStyle: 'italic', marginBottom: '0.75rem', fontSize: '0.95rem' }}>Subject: {analysis.targetSubject}</h4>
+                            </div>
+                            {analysis.coverImage && (
+                                <div style={{ flexShrink: 0, width: '90px', height: '135px', borderRadius: '4px', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: '0 4px 10px rgba(0,0,0,0.3)' }}>
+                                    <img src={analysis.coverImage} alt={analysis.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                </div>
+                            )}
+                        </div>
+
+                        <div style={{ marginBottom: '1.25rem', display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                            {analysis.genreTags && analysis.genreTags.map(tag => (
+                                <span key={tag} className="tag" style={{ padding: '0.2rem 0.6rem', fontSize: '0.75rem' }}>{tag}</span>
                             ))}
                         </div>
-                        <Link href={`/analyses/${analysis._id}`} className="btn-primary">
+                        <Link href={`/analyses/${analysis._id}`} className="btn-primary" style={{ marginTop: 'auto', alignSelf: 'flex-start', padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}>
                             Read Analysis
                         </Link>
                     </div>

@@ -19,10 +19,6 @@ const AnalysisSchema = new mongoose.Schema(
             type: String,
             trim: true
         }],
-        publishedAt: {
-            type: String,
-            required: [true, 'Please provide the analysis content'],
-        },
         content: {
             type: String,
             required: [true, 'Please provide the analysis content'],
@@ -39,4 +35,5 @@ const AnalysisSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-export default mongoose.models.Analysis || mongoose.model('Analysis', AnalysisSchema);
+delete mongoose.models.Analysis;
+export default mongoose.model('Analysis', AnalysisSchema);
