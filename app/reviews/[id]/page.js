@@ -33,7 +33,7 @@ export default async function ReviewDetailsPage({ params }) {
                 {/* Header Section */}
                 <div style={{ paddingBottom: '2rem', borderBottom: '1px solid var(--border-color)', display: 'flex', gap: '2rem', flexDirection: 'column' }}>
 
-                    <div style={{ display: 'flex', gap: '2rem', flexDirection: 'row', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                    <div className="review-detail-header" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
                         {review.coverImage && (
                             <div style={{ flexShrink: 0, width: '120px', height: '180px', borderRadius: '4px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
                                 <img src={review.coverImage} alt={review.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -68,17 +68,17 @@ export default async function ReviewDetailsPage({ params }) {
 
                 {/* Score Breakdown */}
                 {review.stats && (
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', padding: '1.5rem', backgroundColor: 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', padding: '1.5rem', backgroundColor: 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', minWidth: '100px' }}>
                             <span style={{ fontSize: '0.8rem', color: 'var(--text-label)', textTransform: 'uppercase', letterSpacing: '1px' }}>Plot</span>
                             <span style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '1.1rem' }}>{review.stats.plot}/10</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', minWidth: '100px' }}>
                             <span style={{ fontSize: '0.8rem', color: 'var(--text-label)', textTransform: 'uppercase', letterSpacing: '1px' }}>Writing</span>
                             <span style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '1.1rem' }}>{review.stats.writing}/10</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                            <span style={{ fontSize: '0.8rem', color: 'var(--text-label)', textTransform: 'uppercase', letterSpacing: '1px' }}>Recommendability</span>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', minWidth: '100px' }}>
+                            <span style={{ fontSize: '0.8rem', color: 'var(--text-label)', textTransform: 'uppercase', letterSpacing: '1px' }}>Rec'd</span>
                             <span style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '1.1rem' }}>{review.stats.recommendability}/10</span>
                         </div>
                     </div>

@@ -382,22 +382,26 @@ textarea:focus {
     height: 200px !important;
   }
 
-  /* Analysis Detail Page – stack header vertically */
-  .analysis-detail-header {
+  /* Detail Pages – stack headers vertically */
+  .analysis-detail-header,
+  .review-detail-header {
     flex-direction: column !important;
     align-items: center !important;
   }
 
-  .analysis-detail-header>div:first-child {
+  .analysis-detail-header>div:first-child,
+  .review-detail-header>div:first-child {
     width: 160px !important;
   }
 
-  .analysis-detail-header h1 {
+  .analysis-detail-header h1,
+  .review-detail-header h1 {
     font-size: 2rem !important;
     text-align: center;
   }
 
-  .analysis-detail-header h3 {
+  .analysis-detail-header h3,
+  .review-detail-header h2 {
     text-align: center;
     font-size: 1rem !important;
   }
