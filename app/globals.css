@@ -384,24 +384,29 @@ textarea:focus {
 
   /* Detail Pages – stack headers vertically */
   .analysis-detail-header,
-  .review-detail-header {
+  .review-detail-header,
+  .story-hero-header {
     flex-direction: column !important;
     align-items: center !important;
+    text-align: center;
   }
 
   .analysis-detail-header>div:first-child,
-  .review-detail-header>div:first-child {
+  .review-detail-header>div:first-child,
+  .story-hero-cover {
     width: 160px !important;
   }
 
   .analysis-detail-header h1,
-  .review-detail-header h1 {
+  .review-detail-header h1,
+  .story-hero-header h1 {
     font-size: 2rem !important;
     text-align: center;
   }
 
   .analysis-detail-header h3,
-  .review-detail-header h2 {
+  .review-detail-header h2,
+  .story-hero-header h2 {
     text-align: center;
     font-size: 1rem !important;
   }

@@ -70,9 +70,9 @@ export default async function StoryReader({ params }) {
                     ← Back to Hub
                 </Link>
 
-                <div style={{ display: 'flex', flexDirection: 'row', gap: '2.5rem', alignItems: 'center', marginBottom: '3rem' }}>
+                <div className="story-hero-header" style={{ display: 'flex', flexDirection: 'row', gap: '2.5rem', alignItems: 'center', marginBottom: '3rem' }}>
                     {story.coverImage && (
-                        <div style={{ width: '220px', flexShrink: 0, borderRadius: '8px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                        <div className="story-hero-cover" style={{ width: '220px', flexShrink: 0, borderRadius: '8px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
                             <img src={story.coverImage} alt="Cover art" style={{ width: '100%', height: 'auto', display: 'block' }} />
                         </div>
                     )}
