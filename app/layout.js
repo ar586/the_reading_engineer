@@ -2,6 +2,7 @@ import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "../components/Footer";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${lora.variable}`} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <ReadingProgressBar />
         <Navbar />
         <main className="animate-fade-in" style={{ flex: 1 }}>
           {children}
