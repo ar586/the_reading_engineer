@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Star } from 'lucide-react';
 import SpoilerText from '@/components/SpoilerText';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function ReviewDetailsPage({ params }) {
     await dbConnect();

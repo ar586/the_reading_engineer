@@ -3,6 +3,8 @@ import Link from 'next/link';
 import dbConnect from '@/lib/mongodb';
 import Analysis from '@/models/Analysis';
 
+export const revalidate = 60;
+
 export default async function AnalysesPage() {
     await dbConnect();
     const analyses = await Analysis.find({ isDraft: false }).sort({ createdAt: -1 }).lean();

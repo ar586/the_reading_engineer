@@ -3,7 +3,8 @@ import GoodreadsBook from '@/models/GoodreadsBook';
 import TornEdge from '@/components/TornEdge';
 import StatsClient from './StatsClient';
 
-export const dynamic = 'force-dynamic';
+// Revalidate periodically instead of full dynamic load
+export const revalidate = 60;
 
 export default async function StatsPage() {
     await dbConnect();

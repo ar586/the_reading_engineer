@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import SpoilerText from '@/components/SpoilerText';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 const LOCKED_SLUGS = ['unmasked', 'a-peculiar-date'];
 

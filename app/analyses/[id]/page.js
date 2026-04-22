@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import SpoilerText from '@/components/SpoilerText';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function AnalysisDetailsPage({ params }) {
     await dbConnect();

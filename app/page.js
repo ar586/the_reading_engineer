@@ -7,20 +7,20 @@ import Review from '@/models/Review';
 import Analysis from '@/models/Analysis';
 import GoodreadsBook from '@/models/GoodreadsBook';
 
-// Tells Next.js not to statically cache this page so new database additions show immediately
-export const dynamic = 'force-dynamic';
+// Revalidate this page every 60 seconds (Incremental Static Regeneration)
+export const revalidate = 60;
 
 export default async function Home() {
   // Connect to cluster
   await dbConnect();
 
-  // Fetch the 3 most recent entries for each category
-  const stories = await Story.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean();
-  const reviews = await Review.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean();
-  const analyses = await Analysis.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean();
-
-  // Fetch Goodreads stats
-  const currentlyReading = await GoodreadsBook.findOne({ bookshelves: { $regex: /currently-reading/i } }).lean();
+  // Fetch the latest entries and completely parallelize the calls for a significant speedup
+  const [stories, reviews, analyses, currentlyReading] = await Promise.all([
+    Story.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean(),
+    Review.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean(),
+    Analysis.find({ isDraft: false }).sort({ createdAt: -1 }).limit(3).lean(),
+    GoodreadsBook.findOne({ bookshelves: { $regex: /currently-reading/i } }).lean()
+  ]);
 
   return (
     <div className="split-home-layout">

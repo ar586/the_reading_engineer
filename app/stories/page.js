@@ -2,7 +2,8 @@ import dbConnect from '@/lib/mongodb';
 import Story from '@/models/Story';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
+// Revalidate page periodically for better performance
+export const revalidate = 60;
 
 // Stories locked at the request of real-life characters
 const LOCKED_SLUGS = ['unmasked', 'a-peculiar-date'];
